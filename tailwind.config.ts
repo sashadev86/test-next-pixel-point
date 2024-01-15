@@ -9,20 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        "roboto": ["Roboto", "sans-serif"],
+        "poppins": ["Poppins", "sans-serif"],
       },
     },
     container: {
       center: true,
     },
     colors: {
-      black: "#0E0A0F",
+      "black": "#0E0A0F",
       "grey-98": "#FAF9FA",
+      "primary": "#9966FF",
     },
     fontSize: {
       "text-15": [
-        "0,9375rem",
+        "0.9375rem",
         {
           lineHeight: "2rem",
           letterSpacing: "-0.01em",
