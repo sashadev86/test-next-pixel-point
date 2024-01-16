@@ -1,9 +1,12 @@
-import { ButtonProps } from "./interface"
+import { ButtonProps } from "./interface";
 
-const Button = ({text, classes}: ButtonProps) => {
+const Button = ({ text, classes, children, disabled }: ButtonProps) => {
   return (
-    <button className={classes}>{text}</button>
-  )
-}
+    <button className={classes} disabled={disabled}>
+      {text}
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

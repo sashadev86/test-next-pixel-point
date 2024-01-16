@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .header__container {
-  @apply flex;
-} */
+.form__input::placeholder {
+  /* opacity: 0.8; */
+  background: linear-gradient(90deg, #EAC8F2 0%, #E6ADEC 32.41%, #D49EE8 71.97%, #CA97E6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title__nums {
+  background: linear-gradient(133deg, #D383FC 21.78%, #CB6AFB 39.25%, rgba(203, 106, 251, 0.20) 86.85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
