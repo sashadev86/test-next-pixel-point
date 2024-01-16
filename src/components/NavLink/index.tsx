@@ -28,7 +28,7 @@ const NavLink = ({ to, title, children }: NavLinkProps) => {
       </Link>
       {hasSubMenu && (
         <ul
-          className={`absolute left-0 py-1 w-full flex flex-col gap-1 bg-transparent ${
+          className={`absolute left-0 py-1 w-full flex flex-col gap-1 bg-transparent z-10 ${
             isSubMenuOpen ? "block" : "hidden"
           }`}
           onMouseEnter={() => setIsSubMenuOpen(true)}
