@@ -12,7 +12,7 @@ const NavLink = ({ to, title, children }: NavLinkProps) => {
   return (
     <>
       <Link
-        className="font-roboto text-text-15 text-grey-98 flex items-center gap-x-1 hover:text-primary transition-colors"
+        className="flex items-center gap-x-1 font-roboto text-[.9375rem] leading-[.9375rem] tracking-[.0231rem] text-grey-98 hover:text-primary-1 opacity-90 transition-colors ease-in-out"
         href={to}
         onMouseEnter={() => setIsSubMenuOpen(true)}
         onMouseLeave={() => setIsSubMenuOpen(false)}
@@ -20,9 +20,9 @@ const NavLink = ({ to, title, children }: NavLinkProps) => {
         {title}
         {hasSubMenu && (
           <ChevronDownIcon
-            className={`w-3 h-3 transition-transform duration-300 ease-in-out ${
+            className={`w-3 h-3 transition-transform ease-in-out ${
               isSubMenuOpen ? "rotate-180" : ""
-            } text-grey-98`}
+            } text-current`}
           />
         )}
       </Link>
