@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        "roboto": ["Roboto", "sans-serif"],
-        "poppins": ["Poppins", "sans-serif"],
-      },
+        'roboto': ['"Roboto", sans-serif'],
+        'poppins': ['"Poppins", sans-serif'],
+      },    
       maxWidth: {
         container: "94.875rem",
       },
@@ -28,30 +28,13 @@ const config: Config = {
     },
     colors: {
       "black": "#0E0A0F",
+      "primary-1": "#9966FF",
+      "primary-2": "#CB6AFB",
       "grey-94": "#F0EEF1",
       "grey-98": "#FAF9FA",
-      "primary": "#9966FF",
       "london-hue": "#B394B2",
       "white": "#ffffff",
       "error": "#F04242",
-    },
-    fontSize: {
-      "text-15": [
-        "0.9375rem",
-        {
-          fontWeight: "500",
-          lineHeight: "2rem",
-          letterSpacing: "0.0238rem",
-        },
-      ],
-      "text-h1": [
-        "4.75rem",
-        {
-          fontWeight: "400",
-          lineHeight: "112.5%",
-          letterSpacing: "-0.095rem",
-        },
-      ],
     },
   },
   plugins: [],

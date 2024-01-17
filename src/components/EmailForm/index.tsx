@@ -10,10 +10,7 @@ import background from "../../images/email-form.svg";
 import loader from "../../images/loader.svg";
 import successImage from "../../images/success.svg";
 import errorImage from "../../images/error.svg";
-
-interface IEmailForm {
-  email: string;
-}
+import { IEmailForm } from "./interface";
 
 const schema = yup
   .object({
@@ -41,7 +38,7 @@ export default function EmailForm() {
     setButtonStatus("loading");
     try {
       const response = await fetch(
-        "https://mytest.free.beeceptor.com/777send-email",
+        "https://mytest.free.beeceptor.com/send-email",
         {
           method: "POST",
           headers: {
@@ -75,7 +72,7 @@ export default function EmailForm() {
     switch (buttonStatus) {
       case "loading":
         return (
-          <div className="max-w-12 w-full h-12 flex items-center justify-center bg-primary rounded-full animate-spin">
+          <div className="max-w-12 w-full h-12 flex items-center justify-center bg-primary-1 rounded-full animate-spin">
             <Image
               className="z-1"
               src={loader}
@@ -114,7 +111,7 @@ export default function EmailForm() {
         return (
           <Button
             text="Free Trial"
-            classes="px-12 h-full font-roboto text-base font-semibold text-black bg-primary whitespace-nowrap rounded-[2.5rem] hover:bg-grey-98 hover:text-primary transition-colors"
+            classes="px-[3.125rem] h-full font-roboto text-base font-semibold text-black bg-primary-1 whitespace-nowrap rounded-[2.5rem] hover:bg-grey-98 hover:text-primary transition-colors"
             disabled={isSubmitting}
           />
         );
@@ -126,7 +123,6 @@ export default function EmailForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="p-1.5 relative max-w-[31.5rem] h-[3.75rem] flex items-center gap-x-1.5 border border-solid border-london-hue rounded-[2.5rem]"
     >
-
       <Image
         className="absolute top-0 left-0 w-full bg-custom-gradient mix-blend-overlay rounded-[2.5rem] z-[-1]"
         src={background}
@@ -136,7 +132,7 @@ export default function EmailForm() {
       <input
         type="email"
         {...register("email")}
-        className={`pl-[1.625rem] w-full font-roboto text-base font-light text-white opacity-80 bg-[transparent] outline-none placeholder:font-roboto placeholder:text-base placeholder:font-light form__input ${
+        className={`pl-[1.625rem] w-full font-roboto text-base font-light text-white opacity-80 bg-[transparent] outline-none placeholder:font-roboto placeholder:text-base placeholder:font-light placeholder:tracking-[.02rem] form-input ${
           errorMessage ? "placeholder:opacity-0" : ""
         }`}
         placeholder="Your business email..."
