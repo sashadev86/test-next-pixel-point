@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Text from "../Text/index";
-import myPic from "../../images/illustration.png";
-import EmailForm from "../EmailForm/index";
+import Text from "../Text";
+import myPic from "../../../images/illustration.png";
+import EmailForm from "../EmailForm";
 
 const HeroSection = () => {
   return (
@@ -31,13 +31,13 @@ const HeroSection = () => {
             src={myPic}
             width={716}
             height={797}
-            priority={false}
+            priority
             alt="Acme Corp"
           />
         </div>
 
-        <ul className="mb-[10rem] pl-[0.9375rem] flex items-center gap-x-[10.375rem]">
-          <li className="max-w-[21.125rem] w-full">
+        <ul className="mb-[10rem] pl-[0.9375rem] min-h-full flex items-center gap-x-[10.375rem] gap-y-2.5 flex-wrap">
+          <li className="max-w-[21.125rem] w-full self-stretch">
             <div className="relative mb-[.6875rem] inline-block">
               <div className="absolute top-0 right-0 bottom-0 left-0 bg-primary-2 opacity-30 blur-[6.25rem] rounded-full"></div>
               <Text
@@ -61,7 +61,7 @@ const HeroSection = () => {
               tag="p"
             />
           </li>
-          <li className="max-w-[21.125rem] w-full">
+          <li className="max-w-[21.125rem] w-full self-stretch">
             <div className="relative mb-[.6875rem] inline-block">
               <div className="absolute top-0 right-0 bottom-0 left-0 bg-primary-2 opacity-30 blur-[6.25rem] rounded-full"></div>
               <Text
@@ -85,7 +85,7 @@ const HeroSection = () => {
               tag="p"
             />
           </li>
-          <li className="max-w-[21.125rem] w-full">
+          <li className="max-w-[21.125rem] w-full self-stretch">
             <div className="relative mb-[.6875rem] inline-block">
               <div className="absolute top-0 right-0 bottom-0 left-0 bg-primary-2 opacity-30 blur-[6.25rem] rounded-full"></div>
               <Text

@@ -1,17 +1,19 @@
-import { IEmailForm } from "../components/EmailForm/interface";
+import { IEmailForm } from "../components/shared/EmailForm/interface";
 
 export async function sendEmail(data: IEmailForm) {
+  const URLS = {
+    myTest: "https://mytest.free.beeceptor.com",
+    sendEmail: "/send-email",
+  };
+
   try {
-    const response = await fetch(
-      "https://mytest.free.beeceptor.com/send-email",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: data.email }),
-      }
-    );
+    const response = await fetch(`${URLS.myTest}${URLS.sendEmail}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: data.email }),
+    });
 
     if (!response.ok) {
       throw new Error("Email sending failed");
@@ -19,6 +21,12 @@ export async function sendEmail(data: IEmailForm) {
 
     return response;
   } catch (error) {
-    throw console.error(error);;
+    if (error instanceof Error) {
+      throw new Error(
+        `An error occurred when sending an email: ${error.message}`
+      );
+    } else {
+      throw new Error(`An unknown error occurred while sending the email`);
+    }
   }
 }

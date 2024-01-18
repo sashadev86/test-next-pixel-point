@@ -1,16 +1,16 @@
-import type { Metadata } from 'next'
-import '../styles/globals.css'
-import Header from '../components/Header';
+import type { Metadata } from "next";
+import "../styles/globals.css";
+import Header from "../components/shared/Header";
+import getMetadata from "../utils/get-metadata";
 
-export const metadata: Metadata = {
-  title: "Pixel Point",
-  description: "Test Pixel Point",
-};
+export const metadata: Metadata = getMetadata({
+  robotsNoindex: "noindex",
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">

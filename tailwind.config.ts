@@ -13,10 +13,10 @@ const config: Config = {
         'poppins': ['"Poppins", sans-serif'],
       },    
       maxWidth: {
-        container: "94.875rem",
+        "container": "94.875rem",
       },
       padding: {
-        safety: "0 0.9375rem",
+        "safety": "0 0.9375rem",
       },
       backgroundImage: {
         "custom-gradient":
