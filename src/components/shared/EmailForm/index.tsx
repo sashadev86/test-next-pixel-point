@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
-import background from "../../images/email-form.svg";
+import background from "../../../images/email-form.svg";
 import { IEmailForm } from "./interface";
 import { schema } from "./validation";
-import useEmailSubmitState from "@/src/hooks/useEmailSubmitState";
 import { sendEmail } from "@/src/api/emailAPI";
+import renderButtonOrIcon, { StatusIcon } from "./renderButtonOrIcon";
 
 export default function EmailForm() {
   const [buttonStatus, setButtonStatus] = useState<string>("default");
@@ -24,17 +24,17 @@ export default function EmailForm() {
   });
 
   const onSubmit: SubmitHandler<IEmailForm> = async (data) => {
-    setButtonStatus("loading");
+    setButtonStatus(StatusIcon.Loader);
     try {
       await sendEmail(data);
 
-      setButtonStatus("success");
+      setButtonStatus(StatusIcon.Success);
       setTimeout(() => {
         setButtonStatus("default");
       }, 3000);
     } catch (error) {
       setErrorMessage("Oops! Something went wrong");
-      setButtonStatus("error");
+      setButtonStatus(StatusIcon.Error);
       setTimeout(() => {
         setButtonStatus("default");
         setErrorMessage("");
@@ -53,6 +53,7 @@ export default function EmailForm() {
         className="absolute top-0 left-0 w-full bg-custom-gradient mix-blend-overlay rounded-[2.5rem] z-[-1]"
         src={background}
         alt="background form"
+        fill
       />
 
       <input
@@ -66,7 +67,7 @@ export default function EmailForm() {
         autoComplete="off"
       />
 
-      {useEmailSubmitState({buttonStatus, isSubmitting})}
+      {renderButtonOrIcon({ buttonStatus, isSubmitting })}
 
       {errors.email && (
         <span className="pl-8 absolute left-0 bottom-[-1.875rem] text-error">

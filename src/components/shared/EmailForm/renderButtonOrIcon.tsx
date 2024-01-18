@@ -1,17 +1,26 @@
 import Image from "next/image";
-import loader from "../images/loader.svg";
-import successImage from "../images/success.svg";
-import errorImage from "../images/error.svg";
-import Button from "../components/Button";
+import loader from "../../../images/loader.svg";
+import successImage from "../../../images/success.svg";
+import errorImage from "../../../images/error.svg";
+import Button from "../Button";
 
-interface PropsEmailSubmitState {
+interface PropsRenderButtonOrIcon {
   buttonStatus: string;
   isSubmitting: boolean;
 }
 
-const useEmailSubmitState = ({ buttonStatus, isSubmitting }: PropsEmailSubmitState) => {
+export enum StatusIcon {
+  Loader = "LOADER",
+  Success = "SUCCESS",
+  Error = "ERROR",
+}
+
+const renderButtonOrIcon = ({
+  buttonStatus,
+  isSubmitting,
+}: PropsRenderButtonOrIcon) => {
   switch (buttonStatus) {
-    case "loading":
+    case StatusIcon.Loader:
       return (
         <div className="max-w-12 w-full h-12 flex items-center justify-center bg-primary-1 rounded-full animate-spin">
           <Image
@@ -23,7 +32,7 @@ const useEmailSubmitState = ({ buttonStatus, isSubmitting }: PropsEmailSubmitSta
           />
         </div>
       );
-    case "success":
+    case StatusIcon.Success:
       return (
         <div className="max-w-12 w-full h-12 flex items-center justify-center">
           <Image
@@ -35,7 +44,7 @@ const useEmailSubmitState = ({ buttonStatus, isSubmitting }: PropsEmailSubmitSta
           />
         </div>
       );
-    case "error":
+    case StatusIcon.Error:
       return (
         <div className="max-w-12 w-full h-12 flex items-center justify-center">
           <Image
@@ -52,10 +61,10 @@ const useEmailSubmitState = ({ buttonStatus, isSubmitting }: PropsEmailSubmitSta
       return (
         <Button
           text="Free Trial"
-          classes="px-[3.125rem] h-full font-roboto text-base font-semibold text-black bg-primary-1 whitespace-nowrap rounded-[2.5rem] hover:bg-grey-98 hover:text-primary transition-colors"
+          classes="px-[3.125rem] h-full font-roboto text-base font-semibold text-black bg-primary-1 whitespace-nowrap rounded-[2.5rem] hover:bg-grey-98 hover:text-primary-1 transition-colors"
           disabled={isSubmitting}
         />
       );
   }
 };
-export default useEmailSubmitState;
+export default renderButtonOrIcon;
