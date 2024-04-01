@@ -6,7 +6,7 @@
 ## Getting Started
 1. Clone the repository:
 ```
-git clone https://github.com/BANDITOS86/test-next-pixel-point.git
+git clone https://github.com/sashadev86/test-next-pixel-point.git
 ```
 2. Install dependencies:
 ```
@@ -27,4 +27,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ### Final result:
-[![Screenshot dev](https://github.com/BANDITOS86/my-img/blob/main/pixel-point-test-hero.png?raw=true)](https://test-next-pixel-point.vercel.app/)
+[![Screenshot dev](https://github.com/sashadev86/my-img/blob/main/pixel-point-test-hero.png?raw=true)](https://test-next-pixel-point.vercel.app/)
